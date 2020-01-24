@@ -21,6 +21,7 @@ export default class App extends Component {
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
   handleSuccessfulLogin() {
@@ -35,6 +36,12 @@ export default class App extends Component {
     });
   }
 
+  handleSuccessfulLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_OUT"
+    });
+  }
+
   checkLoginStatus() {
     return axios
     .get('https://api.devcamp.space/logged_in', { 
@@ -43,10 +50,6 @@ export default class App extends Component {
     .then(response => {
       const loggedIn = response.data.logged_in;
       const loggedInStatus = this.state.loggedInStatus;
-
-      // If loggedIn and status LOGGED_IN => return data
-      // If loggedIn status NOT_LOGGED_IN => update state
-      // If not loggedIn and status LOGGED_IN => update state
 
       if (loggedIn && loggedInStatus === 'LOGGED_IN') {
         return loggedIn;
@@ -69,12 +72,17 @@ export default class App extends Component {
     this.checkLoginStatus();
   }
 
+  authorizedWebsites() {
+    return [<Route path='/blog' component={Blog} />];
+  }
+
   render() {
     return (
       <div className='container'>
         <Router>
           <div>
-            <NavigationContainer />
+            <NavigationContainer loggedInStatus={this.state.loggedInStatus} 
+              handleSuccessfulLogout={this.handleSuccessfulLogout} />
 
             <h2>{this.state.loggedInStatus}</h2>
 
@@ -90,6 +98,9 @@ export default class App extends Component {
               />
               <Route path='/about-me' component={About} />
               <Route path='/contact' component={Contact} />
+              {this.state.loggedInStatus === 'LOGGED_IN' ? ( 
+                this.authorizedWebsites()
+              ) : null}
               <Route path='/blog' component={Blog} />
               <Route exact path='/portfolio/:slug' component={PortfolioDetail} />
               <Route component={NoMatch} />
