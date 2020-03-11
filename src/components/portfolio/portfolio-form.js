@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 import DropzoneComponent from 'react-dropzone-component';
 
 import '../../../node_modules/react-dropzone-component/styles/filepicker.css'
 import '../../../node_modules/dropzone/dist/min/dropzone.min.css'
+=======
+>>>>>>> af42280be349746b12c2511ce3a4c72230be180a
 
 export default class PortfolioForm extends Component {
     constructor(props) {
@@ -124,6 +127,7 @@ export default class PortfolioForm extends Component {
     }
 
     handleSubmit(event) {
+<<<<<<< HEAD
         axios
             .post(
                 'https://jkaunitz.devcamp.space/portfolio/portfolio_items', 
@@ -151,6 +155,17 @@ export default class PortfolioForm extends Component {
             .catch(error => {
                 console.log('portfolio form handleSubmig error', error);
             });
+=======
+        axios.post(
+            'https://jkaunitz.devcamp.space/portfolio/portfolio_items', 
+            this.buildForm(), 
+            { withCredentials: true }
+        ).then(response => {
+            console.log('response', response);
+        }).catch(error => {
+            console.log('portfolio form handleSubmig error', error);
+        });
+>>>>>>> af42280be349746b12c2511ce3a4c72230be180a
 
         event.preventDefault();
     }
@@ -189,7 +204,10 @@ export default class PortfolioForm extends Component {
                             name='category'
                             value={this.state.category}
                             onChange={this.handleChange}
+<<<<<<< HEAD
                             className='select-element'
+=======
+>>>>>>> af42280be349746b12c2511ce3a4c72230be180a
                         >
                             <option value ='eCommerce'>eCommerce</option>
                             <option value ='Scheduling'>Scheduling</option>
@@ -197,7 +215,11 @@ export default class PortfolioForm extends Component {
                         </select>
                     </div>
 
+<<<<<<< HEAD
                     <div className='one-column'>
+=======
+                    <div>
+>>>>>>> af42280be349746b12c2511ce3a4c72230be180a
                         <textarea
                             type='text'
                             name='description'
