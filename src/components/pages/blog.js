@@ -20,13 +20,13 @@ class Blog extends Component {
         }).then(response => {
             this.setState({
                 blogItems: response.data.portfolio_blogs
-            })
+            });
         }).catch(error => {
             console.log('getBlogItems error', error);
         })
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.getBlogItems(); 
     }
 
