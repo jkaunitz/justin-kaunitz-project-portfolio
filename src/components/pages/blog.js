@@ -92,19 +92,19 @@ class Blog extends Component {
         return (
             <div className='blog-container'>
                 <BlogModal 
-                handleModalClose={this.handleModalClose}
-                blogModalIsOpen={this.state.blogModalIsOpen} />
+                    handleModalClose={this.handleModalClose}
+                    modalIsOpen={this.state.blogModalIsOpen} />
 
-                <div className='new-blog-link'>
-                    <a onClick={this.handleNewBlogClick}>Open Modal!</a>
-                </div>
+                    <div className='new-blog-link'>
+                        <a onClick={this.handleNewBlogClick}>Open Modal!</a>
+                    </div>
 
-                <div className='content-container'>{blogRecords}</div>
+                    <div className='content-container'>{blogRecords}</div>
 
-                {this.state.isLoading ? (
-                <div className='content-loader'>
-                    <FontAwesomeIcon icon='spinner' spin />
-                </div>
+                    {this.state.isLoading ? (
+                        <div className='content-loader'>
+                            <FontAwesomeIcon icon='spinner' spin />
+                        </div>
                 ) : null }
             </div>
         );
