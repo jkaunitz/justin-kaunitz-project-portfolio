@@ -93,7 +93,8 @@ class Blog extends Component {
             <div className='blog-container'>
                 <BlogModal 
                     handleModalClose={this.handleModalClose}
-                    modalIsOpen={this.state.blogModalIsOpen} />
+                    md
+                    odalIsOpen={this.state.blogModalIsOpen} />
 
                     <div className='new-blog-link'>
                         <a onClick={this.handleNewBlogClick}>Open Modal!</a>
