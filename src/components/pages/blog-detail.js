@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
-import BlogFeaturedImage from '../blog/blog-featured-image';
 
+import BlogFeaturedImage from '../blog/blog-featured-image';
 import BlogForm from '../blog/blog-form';
+
 export default class BlogDetail extends Component {
     constructor(props) {
         super(props);
@@ -16,6 +17,14 @@ export default class BlogDetail extends Component {
 
         this.handleEditClick = this.handleEditClick.bind(this);
         this.handleFeaturedImageDelete = this.handleFeaturedImageDelete.bind(this);
+        this.handleUpdateFormSubmission = this.handleUpdateFormSubmission.bind(this);
+    }
+
+    handleUpdateFormSubmission(blog) {
+        this.setState({
+            blogItem: blog,
+            editMode: false
+        })
     }
 
     handleFeaturedImageDelete() {
@@ -62,7 +71,12 @@ export default class BlogDetail extends Component {
         const contentManager = () => {
             if (this.state.editMode) {
                 return (
-                    <BlogForm handleFeaturedImageDelete={this.handleFeaturedImageDelete} editMode={this.state.editMode} blog={this.state.blogItem} />
+                    <BlogForm
+                        handleFeaturedImageDelete={this.handleFeaturedImageDelete}
+                        handleUpdateFormSubmission={this.handleUpdateFormSubmission}
+                        editMode={this.state.editMode}
+                        blog={this.state.blogItem}
+                    />
                 );
             } else {
                 return (
@@ -75,10 +89,8 @@ export default class BlogDetail extends Component {
                     </div>
                 );
             }
-        }
+        };
 
-        return (
-            <div className='blog-container'>{contentManager()}</div>
-        );
+        return <div className='blog-container'>{contentManager()}</div>
     }
 }
