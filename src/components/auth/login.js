@@ -47,7 +47,7 @@ export default class Login extends Component {
         })
         .catch(error => {
             this.setState({
-                errorText: 'An error occurred'
+                errorText: 'An error occurred', error
             })
             this.props.handleUnsuccessfulAuth();
         });    
@@ -59,28 +59,30 @@ export default class Login extends Component {
         return (
             <div>
                 <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
+
+                <div>{this.state.errorText}</div> 
                 
                 <form onSubmit={this.handleSubmit} className='auth-form-wrapper'>
                     <div className='form-group'>
-                    <FontAwesomeIcon icon='envelope' />
-                    <input 
-                        type='email'
-                        name='email'
-                        placeholder='Your email'
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    />
+                        <FontAwesomeIcon icon='envelope' />
+                        <input 
+                            type='email'
+                            name='email'
+                            placeholder='Your email'
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        />
                     </div>
                     
                     <div className='form-group'>
-                    <FontAwesomeIcon icon='lock' />
-                    <input 
-                        type='password'
-                        name='password' 
-                        placeholder='Your password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
+                        <FontAwesomeIcon icon='lock' />
+                        <input 
+                            type='password'
+                            name='password' 
+                            placeholder='Your password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
                     </div>
 
                     <button className='btn' type='submit'>Login</button>

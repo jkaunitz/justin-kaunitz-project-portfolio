@@ -140,7 +140,7 @@ class Blog extends Component {
                             <FontAwesomeIcon icon='plus-square' />
                             </a>
                         </div>
-                    ): null}
+                    ) : null}
 
                     <div className='content-container'>{blogRecords}</div>
 
@@ -148,7 +148,7 @@ class Blog extends Component {
                         <div className='content-loader'>
                             <FontAwesomeIcon icon='spinner' spin />
                         </div>
-                ) : null }
+                ) : null}
             </div>
         );
     }

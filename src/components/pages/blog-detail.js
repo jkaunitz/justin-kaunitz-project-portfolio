@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 
-import BlogFeaturedImage from '../blog/blog-featured-image';
 import BlogForm from '../blog/blog-form';
+import BlogFeaturedImage from '../blog/blog-featured-image';
 
 export default class BlogDetail extends Component {
     constructor(props) {
@@ -36,7 +36,6 @@ export default class BlogDetail extends Component {
     }
 
     handleEditClick() {
-        console.log('handle edit clicked');
         if (this.props.loggedInStatus === "LOGGED_IN") {
             this.setState({ editMode: true });
         }
@@ -51,11 +50,11 @@ export default class BlogDetail extends Component {
         .then(response => {
             this.setState({
                 blogItem: response.data.portfolio_blog
-            })
+            });
         })
         .catch(error => {
             console.log('getBlogItem error', error);
-        })
+        });
     }
 
     componentDidMount() {

@@ -17,7 +17,6 @@ export default class Auth extends Component {
 
     handleUnsuccessfulAuth() {
         this.props.handleUnsuccessfulLogin();
-
     }
 
     render() {
