@@ -90,7 +90,10 @@ export default class BlogForm extends Component {
         formData.append('portfolio_blog[content]', this.state.content);
 
         if (this.state.featured_image) {
-            formData.append('portfolio_blog[featured_image]', this.state.featured_image);
+            formData.append(
+                'portfolio_blog[featured_image]', 
+                this.state.featured_image
+            );
         }
 
         return formData;

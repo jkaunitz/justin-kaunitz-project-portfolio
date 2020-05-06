@@ -48,7 +48,7 @@ export default class App extends Component {
 
   handleSuccessfulLogout() {
     this.setState({
-      loggedInStatus: "NOT_LOGGED_OUT"
+      loggedInStatus: "NOT_LOGGED_IN"
     });
   }
 
