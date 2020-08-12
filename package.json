@@ -83,7 +83,7 @@
     "react-truncate": "^2.4.0",
     "redux": "^4.0.5",
     "sass-loader": "^7.3.1",
-    "serialize-javascript": "^2.1.2",
+    "serialize-javascript": "^3.1.0",
     "striptags": "^3.1.1",
     "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.11",
